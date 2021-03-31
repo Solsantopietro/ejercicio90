@@ -1,0 +1,39 @@
+.card {
+  width: 300px;
+  height: 346px;
+  margin:  20px;
+  object-fit: contain;
+  background-color: white;
+  padding: 10px;
+  .product-name {
+    margin: 0 0 5px;
+    font-size: 25px;
+    color: #22232b;    
+  }
+    .product-type {
+        margin: 5px 0 31px;
+        opacity: 0.5;
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        color: #22232b;
+    }
+  img {
+    width: 100%;
+    height: auto;
+  }  
+
+}
+
+.card-disabled {
+  width: 300px;
+  height: 346px;
+  margin:  20px;
+  object-fit: contain;
+  background-color: gray;
+  
+}
