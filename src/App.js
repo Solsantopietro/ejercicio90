@@ -1,5 +1,7 @@
 import './App.scss';
 import Card from './components/Card';
+import Search from './components/Search';
+
 import React, { useState } from 'react'
 
 
@@ -76,32 +78,23 @@ const App = () => {
   const [valorDelInput, setValorDelInput] = useState(products)
 
 
-  const handlerClickBuscar = (e) => {
-    
+  const buscarProducto = () => {
+
     products.map((product) => {
       valorDelInput === product.title ?
-      console.log("el valor del input", valorDelInput, "es igual a: ", product.title)
-    : console.log("el valor del input", valorDelInput, "no es igual")
-             
+        console.log("el valor del input", valorDelInput, "es igual a: ", product.title)
+        : console.log("el valor del input", valorDelInput, "no es igual")
+
     })
     setValorDelInput("")
   }
 
-  const handleChange = (e) => {
-    setValorDelInput(e.target.value)
-    console.log(setValorDelInput)
-  }
 
   return (
     <div className="App">
-      <label>
-        <input type="text"
-          placeholder="Por ej, chair"
-          value={valorDelInput}
-          onChange={handleChange}
-        />
-      </label>
-      <button onClick={handlerClickBuscar}>BUSCAR</button>
+      <div>
+        <Search buscarProducto={buscarProducto} />
+      </div>
       <div className="tarjeta">
         {products.map((product, i) =>
           <Card

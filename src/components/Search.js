@@ -1,17 +1,18 @@
+import React, { useState } from 'react'
 
 
-const Search = ({product, buscarProducto}) => {
-    console.log(product)
+const Search = ({buscarProducto}) => {
+
+  const [valorDelInput, setValorDelInput] = useState('')
+
 
     const handleChange = (e) => {
         setValorDelInput(e.target.value)
-        console.log(setValorDelInput)
-      }
-
-    const handlerClickBuscar = (e) => {
         buscarProducto(e)
-    }
-    
+
+        console.log(valorDelInput)
+
+      }
 
 
     return (
@@ -23,7 +24,7 @@ const Search = ({product, buscarProducto}) => {
                     onChange={handleChange}
                 />
             </label>
-            <button onClick={handlerClickBuscar}>BUSCAR</button>
+            <button onClick={buscarProducto}>BUSCAR</button>
         </div>
     );
 }
