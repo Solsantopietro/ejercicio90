@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.scss';
 import Card from './components/Card';
+import React, { useState } from 'react'
 
 
 const products = [
@@ -69,20 +69,53 @@ const products = [
   },
 ];
 
-function App() {
+
+
+const App = () => {
+
+  const [valorDelInput, setValorDelInput] = useState(products)
+
+
+  const handlerClickBuscar = (e) => {
+    
+    products.map((product) => {
+      valorDelInput === product.title ?
+      console.log("el valor del input", valorDelInput, "es igual a: ", product.title)
+    : console.log("el valor del input", valorDelInput, "no es igual")
+             
+    })
+    setValorDelInput("")
+  }
+
+  const handleChange = (e) => {
+    setValorDelInput(e.target.value)
+    console.log(setValorDelInput)
+  }
+
   return (
     <div className="App">
-      {products.map((product) =>
-        <Card
-          product={product.title}
-          type={product.type}
-          price={product.price}
-          img={product.img}
-          noStock={product.isAvailable}
-          stock={product.onSale}
-
+      <label>
+        <input type="text"
+          placeholder="Por ej, chair"
+          value={valorDelInput}
+          onChange={handleChange}
         />
-      )}
+      </label>
+      <button onClick={handlerClickBuscar}>BUSCAR</button>
+      <div className="tarjeta">
+        {products.map((product, i) =>
+          <Card
+            key={i}
+            product={product.title}
+            type={product.type}
+            price={product.price}
+            img={product.img}
+            noStock={product.isAvailable}
+            stock={product.onSale}
+
+          />
+        )}
+      </div>
     </div>
 
   );
